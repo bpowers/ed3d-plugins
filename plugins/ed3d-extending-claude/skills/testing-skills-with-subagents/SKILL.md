@@ -52,7 +52,7 @@ This is identical to TDD's "write failing test first" - you MUST see what agents
 
 ### Choosing the Model for RED
 
-Run RED-phase tests at the model level you expect in production. If the skill will primarily be used by Sonnet agents, test with `ed3d-basic-agents:sonnet-general-purpose`. If you're unsure which model users will run, use AskUserQuestion to ask — recommend Sonnet as the default.
+Run RED-phase tests at the model level you expect in production. If the skill will primarily be used by Opus agents, test with `ed3d-basic-agents:opus-general-purpose`. If you're unsure which model users will run, use AskUserQuestion to ask — recommend Opus as the default.
 
 The RED phase needs realistic baseline behavior. A stronger model might avoid pitfalls naturally; a weaker one might fail for unrelated reasons. Test at the level that represents actual usage.
 
@@ -95,9 +95,9 @@ Write skill addressing the specific baseline failures you documented. Don't add 
 
 ### Choosing the Model for GREEN
 
-Run GREEN-phase tests one model tier below your expected production model. If you tested RED with Sonnet, test GREEN with Haiku. If you tested RED with Opus, test GREEN with Sonnet.
+Run GREEN-phase tests one model tier below your expected production model. If you tested RED with Opus, test GREEN with Sonnet (use `model: "sonnet"` in the Task tool).
 
-The weakest model that can follow the skill is the strongest test of whether the skill is clear. Haiku follows detailed instructions well but struggles with judgment calls — if your skill keeps Haiku on-rails, Sonnet and Opus will follow it easily. If Haiku can't follow the skill, your instructions aren't explicit enough.
+The weakest model that can follow the skill is the strongest test of whether the skill is clear. Sonnet follows detailed instructions well but struggles with judgment calls — if your skill keeps Sonnet on-rails, Opus will follow it easily. If Sonnet can't follow the skill, your instructions aren't explicit enough.
 
 Run same scenarios WITH skill. Agent should now comply.
 
@@ -375,9 +375,9 @@ Tests pass once ≠ bulletproof.
 
 | TDD Phase | Skill Testing | Model | Success Criteria |
 |-----------|---------------|-------|------------------|
-| **RED** | Run scenario without skill | Production-level (default: Sonnet) | Agent fails, document rationalizations |
+| **RED** | Run scenario without skill | Production-level (default: Opus) | Agent fails, document rationalizations |
 | **Verify RED** | Capture exact wording | Same as RED | Verbatim documentation of failures |
-| **GREEN** | Write skill addressing failures | One tier down (default: Haiku) | Agent now complies with skill |
+| **GREEN** | Write skill addressing failures | One tier down (default: Sonnet) | Agent now complies with skill |
 | **Verify GREEN** | Re-test scenarios | Same as GREEN | Agent follows rule under pressure |
 | **REFACTOR** | Close loopholes | Same as GREEN | Add counters for new rationalizations |
 | **Stay GREEN** | Re-verify | Same as GREEN | Agent still complies after refactoring |

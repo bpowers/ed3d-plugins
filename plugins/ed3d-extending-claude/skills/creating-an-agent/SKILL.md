@@ -43,7 +43,7 @@ agents/
 name: agent-name
 description: Use when [specific triggers] - [what agent does]
 tools: Read, Grep, Glob, Bash
-model: sonnet
+model: opus
 ---
 
 # Agent Name
@@ -173,9 +173,8 @@ What the agent should NOT do:
 
 | Model | Use For |
 |-------|---------|
-| haiku | Simple tasks, fast iteration, high volume |
-| sonnet | Balanced capability/cost, most tasks |
-| opus | Complex reasoning, critical decisions, code review |
+| sonnet | Specialized agents, research, browser automation |
+| opus | General-purpose work, complex reasoning, code review |
 
 Specify in frontmatter:
 ```yaml
@@ -256,7 +255,7 @@ For each issue:
 name: researcher
 description: Use when gathering information from the web, investigating APIs, or synthesizing documentation from multiple sources
 tools: Read, WebFetch, WebSearch, Glob
-model: sonnet
+model: opus
 ---
 
 # Research Agent
@@ -283,7 +282,7 @@ You are a research specialist gathering and synthesizing information.
 name: task-implementor
 description: Use when implementing specific tasks from plans - writes code, runs tests, commits changes following TDD workflow
 tools: Read, Edit, Write, Bash, Grep, Glob, TaskCreate, TaskUpdate, TaskList
-model: sonnet
+model: opus
 ---
 
 # Task Implementor

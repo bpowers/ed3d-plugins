@@ -31,7 +31,7 @@ Rough Idea
 | **`ed3d-00-getting-started`** | Getting started guide and onboarding for ed3d-plugins. Run `/getting-started` to see this README. |
 | **`ed3d-plan-and-execute`** | Planning and execution workflows for Claude Code. Feed it a decent-sized task and it'll help you get it done in a sustainable and thought-through way |
 | **`ed3d-house-style`** | House style for software development; Very Opinionated |
-| **`ed3d-basic-agents`** | Core agents for general-purpose tasks (haiku, sonnet, opus). Other plugins expect this to exist |
+| **`ed3d-basic-agents`** | Core agents for general-purpose tasks (sonnet, opus). Other plugins expect this to exist |
 | **`ed3d-research-agents`** | Agents for research across multiple data sources (codebase, internet, combined); other plugins expect this to exist |
 | **`ed3d-extending-claude`** | Knowledge skills for extending Claude Code: plugins, commands, agents, skills, hooks, MCP servers. Other plugins expect this to exist |
 | **`ed3d-playwright`**| Playwright automation with subagents |

@@ -333,7 +333,7 @@ If you have retried the same agent 3 times with similar failures, stop. Report w
 | REVIEWS_PER | 2 | 3 | 3 |
 | Agent context reserved | 35% | 35% | 35% |
 | Segment overlap | 10% | 10% | 10% |
-| Default agent type | sonnet-general-purpose | sonnet-general-purpose | sonnet-general-purpose |
+| Default agent type | opus-general-purpose | opus-general-purpose | opus-general-purpose |
 
 | Agent Naming | Convention |
 |-------------|------------|

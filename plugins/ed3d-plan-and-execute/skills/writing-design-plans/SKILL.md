@@ -534,7 +534,7 @@ Use the Task tool to generate Summary and Glossary:
 
 ```
 <invoke name="Task">
-<parameter name="subagent_type">ed3d-basic-agents:sonnet-general-purpose</parameter>
+<parameter name="subagent_type">ed3d-basic-agents:opus-general-purpose</parameter>
 <parameter name="description">Generating Summary and Glossary for design document</parameter>
 <parameter name="prompt">
 Read the design document at [file path].
