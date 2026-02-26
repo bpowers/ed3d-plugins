@@ -59,7 +59,7 @@ When state has multiple related pieces that update together, or next state depen
 1. **Local component state?** � useState
 2. **Multiple related state updates?** � useReducer
 3. **Shared across components?** � Context API or custom hook
-4. **Need external library?** � Use codebase-investigator to find existing patterns, or internet-researcher to evaluate options (Zustand, Redux Toolkit, TanStack Query)
+4. **Need external library?** � Use plan-and-execute:codebase-investigator to find existing patterns, or plan-and-execute:internet-researcher to evaluate options (Zustand, Redux Toolkit, TanStack Query)
 
 ## Workflow: Handling Side Effects
 
@@ -95,7 +95,7 @@ For comprehensive useEffect guidance (dependencies, cleanup, when NOT to use, de
 
 ## Workflow: Testing
 
-**ALWAYS use codebase-investigator first** to find existing test patterns. Common approaches: React Testing Library, Playwright, Cypress.
+**ALWAYS use plan-and-execute:codebase-investigator first** to find existing test patterns. Common approaches: React Testing Library, Playwright, Cypress.
 
 See [react-testing.md](./react-testing.md) for comprehensive guidance.
 

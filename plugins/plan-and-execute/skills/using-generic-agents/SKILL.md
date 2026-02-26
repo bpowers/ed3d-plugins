@@ -14,11 +14,11 @@ user-invocable: false
 
 ## When to Use Each
 
-Use `general-purpose` for:
+Use `plan-and-execute:general-purpose` for:
 - Multi-file reasoning and debugging
 - Tasks requiring judgment and sustained focus
 - Daily coding work (default for most tasks)
 - Complex analysis where staying on-track matters
 - High-stakes decisions needing nuance
 
-Specialized agents (codebase-investigator, internet-researcher, etc.) use Sonnet directly via their own model settings.
+Specialized agents (plan-and-execute:codebase-investigator, plan-and-execute:internet-researcher, etc.) use Sonnet directly via their own model settings.

@@ -64,21 +64,21 @@ Options:
 
 ### 3. Codebase Verification
 
-**You MUST verify current codebase state before EACH AND EVERY PHASE. Use `codebase-investigator` to prove out your hypotheses and to ensure that current state aligns with what you want to write out.**
+**You MUST verify current codebase state before EACH AND EVERY PHASE. Use `plan-and-execute:codebase-investigator` to prove out your hypotheses and to ensure that current state aligns with what you want to write out.**
 
 **YOU MUST verify current codebase state before writing ANY task.**
 
-**DO NOT verify codebase yourself. Use codebase-investigator agent.**
+**DO NOT verify codebase yourself. Use plan-and-execute:codebase-investigator agent.**
 
 **Provide the agent with design assumptions so it can report discrepancies:**
 
-Dispatch one subagent codebase-investigator to understand testing behavior for this project.
+Dispatch one subagent plan-and-execute:codebase-investigator to understand testing behavior for this project.
 - **DO NOT prescribe new requirements around testing. Follow how the codebase does it.**
    - For example: do NOT stipulate TDD unless you understand the scope of the problem to be a predominantly functional one OR you receive direction from a human otherwise and do not assume that mocking databases or other external dependencies is acceptable. 
 - If you find problems that are difficult to test in isolation with mocks, you should surface questions to the human operator as to how they want to proceed.
 - Instruct the subagent to seek out CLAUDE.md or AGENTS.md files that include details on testing behavior, logic, and methodology, and include file references for you to provide in your plan for the executor to pass to its subagents.
 
-Dispatch a second subagent codebase-investigator (simultaneously) with:
+Dispatch a second subagent plan-and-execute:codebase-investigator (simultaneously) with:
 - "The design assumes these files exist: [list with expected paths/structure from design]"
 - "Verify each file exists and report any differences from these assumptions"
 - "The design says [feature] is implemented in [location]. Verify this is accurate"
@@ -121,7 +121,7 @@ Use a tiered approach—start with documentation, escalate to source code only w
 
 #### Tier 1: Internet Researcher (default)
 
-Use `internet-researcher` for:
+Use `plan-and-execute:internet-researcher` for:
 - Official documentation and API references
 - Common usage patterns and examples
 - Standard specifications (OAuth2, JWT, HTTP, etc.)
@@ -131,7 +131,7 @@ Use `internet-researcher` for:
 
 #### Tier 2: Remote Code Researcher (escalation)
 
-Use `remote-code-researcher` when:
+Use `plan-and-execute:remote-code-researcher` when:
 - Documentation doesn't cover your edge case
 - You need to understand internal implementation for extension/customization
 - Docs describe *what* but you need to know *how*
@@ -142,22 +142,22 @@ Use `remote-code-researcher` when:
 
 ```
 Phase involves external dependency?
-├─ No → codebase-investigator only
+├─ No → plan-and-execute:codebase-investigator only
 └─ Yes → What do we need to know?
-    ├─ API usage, standard patterns → internet-researcher
-    ├─ Standard/spec implementation → internet-researcher
-    ├─ Implementation internals, extension points → remote-code-researcher
-    └─ Both local state + external info → combined-researcher
+    ├─ API usage, standard patterns → plan-and-execute:internet-researcher
+    ├─ Standard/spec implementation → plan-and-execute:internet-researcher
+    ├─ Implementation internals, extension points → plan-and-execute:remote-code-researcher
+    └─ Both local state + external info → plan-and-execute:combined-researcher
 ```
 
 #### When to Dispatch
 
-**Dispatch internet-researcher when phase mentions:**
+**Dispatch plan-and-execute:internet-researcher when phase mentions:**
 - External packages/libraries to integrate
 - Third-party APIs to call
 - Standards to implement (OAuth, JWT, OpenAPI, etc.)
 
-**Escalate to remote-code-researcher when:**
+**Escalate to plan-and-execute:remote-code-researcher when:**
 - Internet-researcher returns "docs don't cover this"
 - Task requires extending library behavior
 - Task requires matching internal patterns not in docs
@@ -176,7 +176,7 @@ Include external research findings alongside codebase verification:
 - 📖 Source: [Official docs | RFC spec | Source code @ commit]
 ```
 
-**Standards vs Implementation:** Standards questions (e.g., "how does OAuth2 work") are internet-researcher territory. Implementation questions (e.g., "how does auth0-js store tokens") may require remote-code-researcher.
+**Standards vs Implementation:** Standards questions (e.g., "how does OAuth2 work") are plan-and-execute:internet-researcher territory. Implementation questions (e.g., "how does auth0-js store tokens") may require plan-and-execute:remote-code-researcher.
 
 ## Bite-Sized Task Granularity
 
@@ -457,7 +457,7 @@ Use TaskUpdate to mark each sub-task as in_progress when starting, completed whe
 
 2. **Task NB: Verify codebase state**
    - Mark task NB as in_progress
-   - Dispatch codebase-investigator with design assumptions for this phase
+   - Dispatch plan-and-execute:codebase-investigator with design assumptions for this phase
    - Review investigator findings for discrepancies
    - **Activate relevant skills** based on findings (if not already active):
      - TypeScript code? Activate TypeScript/coding style skills
@@ -468,8 +468,8 @@ Use TaskUpdate to mark each sub-task as in_progress when starting, completed whe
 
 3. **Task NC: Research external dependencies** (if phase involves them)
    - Mark task NC as in_progress
-   - Dispatch internet-researcher for docs/standards/API patterns
-   - Escalate to remote-code-researcher if docs are insufficient
+   - Dispatch plan-and-execute:internet-researcher for docs/standards/API patterns
+   - Escalate to plan-and-execute:remote-code-researcher if docs are insufficient
    - Document findings for inclusion in phase output
    - Mark task NC as completed
    - (Skip if no external deps - still mark completed with note "N/A")
@@ -551,7 +551,7 @@ Use TaskUpdate to mark each sub-task as in_progress when starting, completed whe
 
 2. **Task NB: Verify codebase state**
    - Mark task NB as in_progress
-   - Dispatch codebase-investigator with design assumptions for this phase
+   - Dispatch plan-and-execute:codebase-investigator with design assumptions for this phase
    - Review investigator findings for discrepancies
    - **Activate relevant skills** based on findings (if not already active):
      - TypeScript code? Activate TypeScript/coding style skills
@@ -562,8 +562,8 @@ Use TaskUpdate to mark each sub-task as in_progress when starting, completed whe
 
 3. **Task NC: Research external dependencies** (if phase involves them)
    - Mark task NC as in_progress
-   - Dispatch internet-researcher for docs/standards/API patterns
-   - Escalate to remote-code-researcher if docs are insufficient
+   - Dispatch plan-and-execute:internet-researcher for docs/standards/API patterns
+   - Escalate to plan-and-execute:remote-code-researcher if docs are insufficient
    - Mark task NC as completed
    - (Skip if no external deps - still mark completed with note "N/A")
 
@@ -674,9 +674,9 @@ These are violations of the skill requirements:
 
 | Excuse | Reality |
 |--------|---------|
-| "File probably exists, I'll say 'update if exists'" | Use codebase-investigator. Write definitive instruction. |
+| "File probably exists, I'll say 'update if exists'" | Use plan-and-execute:codebase-investigator. Write definitive instruction. |
 | "Design mentioned this file, must be there" | Codebase changes. Use investigator to verify current state. |
-| "I can quickly verify files myself" | Use codebase-investigator. Saves context and prevents hallucination. |
+| "I can quickly verify files myself" | Use plan-and-execute:codebase-investigator. Saves context and prevents hallucination. |
 | "Design plan has code, I'll use that" | No. Design provides direction. Generate code fresh from codebase investigation. |
 | "Design plan is recent, code should still work" | Codebase may have changed. Investigation is the source of truth, not the design. |
 | "User can figure out if file exists during execution" | Your job is exact instructions. No ambiguity. |
@@ -699,9 +699,9 @@ These are violations of the skill requirements:
 | "Dependencies are obvious, don't need addBlockedBy" | Task list shows blocked status. Set dependencies explicitly with TaskUpdate. |
 | "Relative paths are fine in task descriptions" | After compaction, context is lost. Use absolute paths so tasks are self-contained. |
 | "I'll paraphrase the task name, same meaning" | NO. Task names are VERBATIM. "and activate relevant skills" triggers behavior post-compaction. |
-| "I know how this library works from training" | Research it. APIs change. Use internet-researcher for docs, remote-code-researcher for internals. |
+| "I know how this library works from training" | Research it. APIs change. Use plan-and-execute:internet-researcher for docs, plan-and-execute:remote-code-researcher for internals. |
 | "Docs are probably accurate enough" | Usually yes. But if extending/customizing library behavior, verify with source code. |
-| "I'll clone the repo to check the docs" | No. Use internet-researcher for docs. Only clone (remote-code-researcher) for source code investigation. |
+| "I'll clone the repo to check the docs" | No. Use plan-and-execute:internet-researcher for docs. Only clone (plan-and-execute:remote-code-researcher) for source code investigation. |
 | "Phase has external deps but I'll skip research" | Research is mandatory when phase involves external dependencies. Surface unknowns now. |
 | "Test requirements can be generated during execution" | No. Test requirements must exist before execution starts. Code reviewer uses them. |
 | "This type needs unit tests" | No. TypeScript compiler verifies types. Don't test what the compiler checks. |
@@ -730,7 +730,7 @@ Do NOT write hand-waving comments. Do NOT leave TODOs. Do NOT proceed.
 
 2. **Context about why this blocks you:**
    - Which task/phase this affects
-   - What you've already verified via codebase-investigator
+   - What you've already verified via plan-and-execute:codebase-investigator
    - What the design document says (or doesn't say)
 
 3. **Possible solutions you can see:**
@@ -771,7 +771,7 @@ Which approach should I take?
 
 **For each phase (tasks NA through ND):**
 - [ ] **Task NA:** Mark in_progress, read `<!-- START_PHASE_N -->` from design, mark completed
-- [ ] **Task NB:** Mark in_progress, dispatch codebase-investigator, review findings, mark completed
+- [ ] **Task NB:** Mark in_progress, dispatch plan-and-execute:codebase-investigator, review findings, mark completed
 - [ ] **Task NC:** Mark in_progress, research external deps if needed (or mark completed with "N/A"), mark completed
 - [ ] Write complete tasks with exact paths and code based on investigator and research findings
 - [ ] **If interactive mode:** Output complete phase plan, use AskUserQuestion for approval
