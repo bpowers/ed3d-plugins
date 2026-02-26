@@ -222,11 +222,11 @@ Design plans describe WHAT gets built. Implementation plans describe HOW to buil
 
 **Phase count:**
 - Target: 5-8 phases (sweet spot for planning)
-- Maximum: 8 phases (hard limit for writing-plans skill)
+- Maximum: 8 phases (hard limit for writing-implementation-plans skill)
 - If >8 phases needed: Note that multiple implementation plans will be required
 
 **Why <=8 phases matters:**
-- writing-plans skill has hard limit of 8 phases per implementation plan
+- writing-implementation-plans skill has hard limit of 8 phases per implementation plan
 - Exceeding 8 phases forces user to scope or split
 - This is by design to prevent overwhelming implementation plans
 
@@ -236,7 +236,7 @@ Add note to Additional Considerations:
 ```markdown
 ## Additional Considerations
 
-**Implementation scoping:** This design has [N] phases total. The writing-plans skill limits implementation plans to 8 phases. Consider:
+**Implementation scoping:** This design has [N] phases total. The writing-implementation-plans skill limits implementation plans to 8 phases. Consider:
 1. Implementing first 8 phases in initial plan
 2. Creating second implementation plan for remaining phases
 3. Simplifying design to fit within 8 phases
@@ -534,7 +534,7 @@ Use the Task tool to generate Summary and Glossary:
 
 ```
 <invoke name="Task">
-<parameter name="subagent_type">plan-and-execute:opus-general-purpose</parameter>
+<parameter name="subagent_type">plan-and-execute:general-purpose</parameter>
 <parameter name="description">Generating Summary and Glossary for design document</parameter>
 <parameter name="prompt">
 Read the design document at [file path].
@@ -610,7 +610,7 @@ EOF
 | "I can write Summary and Glossary myself, don't need subagent" | Subagent has fresh context and acts as forcing function. Use it. |
 | "Glossary isn't needed, terms are obvious" | Obvious to you after brainstorming. Not to fresh reviewer. Include it. |
 | "Design is simple, don't need phases" | Phases make implementation manageable. Always include. |
-| "Phases are obvious, don't need detail" | writing-plans needs component descriptions. Provide them. |
+| "Phases are obvious, don't need detail" | writing-implementation-plans needs component descriptions. Provide them. |
 | "Can have 10 phases if needed" | Hard limit is 8. Scope or split. |
 | "I'll include the code so implementation is easier" | No. Implementation plans generate code fresh from codebase state. Design provides direction only. |
 | "Breaking into tasks helps the reader" | Task breakdown is implementation planning's job. Design stays at component level. |

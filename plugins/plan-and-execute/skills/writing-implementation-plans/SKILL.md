@@ -913,7 +913,7 @@ Test requirements map acceptance criteria to specific automated tests, and ident
 
 ```
 <invoke name="Task">
-<parameter name="subagent_type">plan-and-execute:opus-general-purpose</parameter>
+<parameter name="subagent_type">plan-and-execute:general-purpose</parameter>
 <parameter name="description">Generating test requirements from Acceptance Criteria</parameter>
 <parameter name="prompt">
 Read the design at [DESIGN_PATH] and implementation phases in [PLAN_DIR].

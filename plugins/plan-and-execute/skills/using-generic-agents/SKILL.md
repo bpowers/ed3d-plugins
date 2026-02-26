@@ -14,7 +14,7 @@ user-invocable: false
 
 ## When to Use Each
 
-Use `opus-general-purpose` for:
+Use `general-purpose` for:
 - Multi-file reasoning and debugging
 - Tasks requiring judgment and sustained focus
 - Daily coding work (default for most tasks)

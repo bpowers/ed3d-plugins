@@ -55,7 +55,7 @@ Action: Dispatch codebase-investigator with: "Find authentication implementation
 
 ### When to Use internet-researcher
 
-**Use @agent-plan-and-execute:internet-researcher when available. Otherwise use WebSearch/WebFetch aggressively.**
+**Dispatch plan-and-execute:internet-researcher when available. Otherwise use WebSearch/WebFetch aggressively.**
 
 **Use internet research when you need to:**
 - Find current API documentation for external services
@@ -358,7 +358,7 @@ When Phase 3 is complete, announce:
 **You do NOT:**
 - Write design document (that's writing-design-plans)
 - Set up worktrees (that's later in workflow)
-- Create implementation plans (that's writing-plans)
+- Create implementation plans (that's writing-implementation-plans)
 
 **You DO:**
 - Hold validated design in conversation context

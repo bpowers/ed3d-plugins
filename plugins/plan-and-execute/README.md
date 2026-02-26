@@ -150,7 +150,7 @@ This decomposition happens before you touch the plugin - it's thinking work you 
 This plugin bundles the pre-requisites that were previously split across multiple plugins:
 
 - `codebase-investigator`, `internet-researcher`, and `combined-researcher`
-- `opus-general-purpose` and `using-generic-agents`
+- `general-purpose` and `using-generic-agents`
 - `coding-effectively` and its referenced sub-skills
 - `project-claude-librarian`, `maintaining-project-context`, and CLAUDE.md writing skills
 
