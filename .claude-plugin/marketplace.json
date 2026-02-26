@@ -29,6 +29,16 @@
             }
         },
         {
+            "name": "plan-and-execute",
+            "description": "Planning and execution workflows for Claude Code or Codex. Based on obra/superpowers.",
+            "version": "1.10.2",
+            "source": "./plugins/plan-and-execute",
+            "author": {
+                "name": "Ed",
+                "email": "ed@ed3d.net"
+            }
+        },
+        {
             "name": "ed3d-house-style",
             "description": "ed3d's house style for software development",
             "version": "1.0.2",

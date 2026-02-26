@@ -29,6 +29,7 @@ Rough Idea
 | Plugin | Description |
 |--------|-------------|
 | **`ed3d-00-getting-started`** | Getting started guide and onboarding for ed3d-plugins. Run `/getting-started` to see this README. |
+| **`plan-and-execute`** | Claude Code/Codex-agnostic single-plugin packaging of plan-and-execute with bundled pre-requisites and dependencies |
 | **`ed3d-plan-and-execute`** | Planning and execution workflows for Claude Code. Feed it a decent-sized task and it'll help you get it done in a sustainable and thought-through way |
 | **`ed3d-house-style`** | House style for software development; Very Opinionated |
 | **`ed3d-basic-agents`** | Core agents for general-purpose tasks (sonnet, opus). Other plugins expect this to exist |
@@ -48,6 +49,7 @@ Rough Idea
 ### Install plugins
 All plugins are available from the `ed3d-plugins` marketplace:
 ```bash
+/plugin install plan-and-execute@ed3d-plugins
 /plugin install ed3d-plan-and-execute@ed3d-plugins
 /plugin install ed3d-house-style@ed3d-plugins
 # ... etc
@@ -60,6 +62,7 @@ ed3d-plugins/
 ├── .claude-plugin/
 │   └── marketplace.json
 ├── plugins/
+│   ├── plan-and-execute/
 │   ├── ed3d-00-getting-started/
 │   ├── ed3d-plan-and-execute/
 │   ├── ed3d-house-style/
