@@ -43,15 +43,13 @@ Rough Idea
 
 ### Add the marketplace
 ```bash
-/plugin marketplace add https://github.com/ed3dai/ed3d-plugins.git
+/plugin marketplace add https://github.com/bpowers/ed3d-plugins.git
 ```
 
 ### Install plugins
 All plugins are available from the `ed3d-plugins` marketplace:
 ```bash
 /plugin install plan-and-execute@ed3d-plugins
-/plugin install ed3d-plan-and-execute@ed3d-plugins
-/plugin install ed3d-house-style@ed3d-plugins
 # ... etc
 ```
 
